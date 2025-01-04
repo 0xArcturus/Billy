@@ -11,6 +11,25 @@ app.use(cors());
 app.use(express.json());
 
 
+const express = require("express");
+const path = require("path");
+
+
+const port = process.env.PORT || 4000;
+
+// Serve React static files
+app.use(express.static(path.join(__dirname, "build")));
+
+// Handle React routing
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+// Socket.IO and other routes setup here
+
+server.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
 
 
 // Initial state
@@ -56,8 +75,5 @@ app.get("/state", (req, res) => {
   res.json(sharedState);
 });
 
-// Start the server
-const PORT = 4000;
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+
+
