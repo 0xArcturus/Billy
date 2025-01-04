@@ -17,7 +17,7 @@ let sharedState = {
   users: [
     "Arturo", "Alberto", "Bea", "Cris", "Elo",
     "Fran", "Hanan", "Joaquín", "Jorge", "Lucas",
-    "Maca", "Manu", "Marta", "Noelia", "Pablo", "Pedro",
+    "Maca", "Manu", "Marta", "Noelia", "Pablo", "Ruben",
   ],
   expenses: [
     { name: "Pizza", price: 30, participants: [] },

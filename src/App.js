@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 import ParticipationPage from "./pages/ParticipationPage";
 import SummaryPage from "./pages/SummaryPage";
+import ExpenseBlobInput from "./components/ExpenseBlobInput";
 
 const socket = io("https://billy-production-7f73.up.railway.app");
 
@@ -47,6 +48,10 @@ const App = () => {
         </button>
       </div>
     )}
+    {currentUser === users[0] && (
+        <ExpenseBlobInput expenses={expenses} setExpenses={setExpenses} socket={socket} />
+      )}
+    
       {currentPage === "participation" && (
         <ParticipationPage
           users={users}
