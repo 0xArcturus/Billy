@@ -26,18 +26,18 @@ const SummaryPage = ({
     return userTotals;
   };
 
-  const calculateTotalExpenses = () => {
-    // Sum up all expense prices
-    return expenses.reduce((total, expense) => total + expense.price, 0);
+  const calculateAttributedTotal = (userTotals) => {
+    // Sum all user totals
+    return Object.values(userTotals).reduce((sum, total) => sum + total, 0);
   };
 
   const userTotals = calculateTotals();
-  const totalExpenses = calculateTotalExpenses();
+  const attributedTotal = calculateAttributedTotal(userTotals);
 
   return (
     <div>
       <h1>Summary</h1>
-      <h2>Total Expenses: €{totalExpenses.toFixed(2)}</h2>
+      <h2>Attributed Total: €{attributedTotal.toFixed(2)}</h2>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {Object.entries(userTotals)
           .filter(([_, total]) => total > 0) // Filter users with a total > 0
@@ -61,3 +61,4 @@ const SummaryPage = ({
 };
 
 export default SummaryPage;
+
