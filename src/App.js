@@ -4,7 +4,8 @@ import io from "socket.io-client";
 import ParticipationPage from "./pages/ParticipationPage";
 import SummaryPage from "./pages/SummaryPage";
 
-const socket = io("http://localhost:4000"); // Connect to the backend server
+const socket = io("https://billy-production-7f73.up.railway.app");
+
 
 const App = () => {
   const [users, setUsers] = useState([]);
